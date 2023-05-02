@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/authProvider/AuthProvider";
 
 const Login = () => {
+  const {loginUser, googleLogin, githubLogin} = useContext(AuthContext);
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
+    }
+
+    const handleGoogleLogin = () => {
+      googleLogin()
+      .then()
+      .catch(error => console.log(error.message))
+    }
+    const handleGithubLogin = () => {
+      githubLogin()
+      .then()
+      .catch(error => console.log(error.message))
+    }
   return (
       <Container style={{maxWidth: '500px'}}>
         <h3 className="text-center my-5"> Please Login!</h3>
-        <Form>
+        <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" name="email" placeholder="Enter email" />
@@ -20,10 +48,10 @@ const Login = () => {
             Login
           </Button>
           <div className="d-flex gap-2 mt-4">
-          <button className="btn btn-outline-primary w-100">
+          <button onClick={handleGoogleLogin} className="btn btn-outline-primary w-100">
           Login with Google
           </button>
-          <button className="btn btn-outline-primary w-100">
+          <button onClick={handleGithubLogin} className="btn btn-outline-primary w-100">
           Login with Github
           </button>
           </div>

@@ -1,8 +1,17 @@
-import React from "react";
-import { Button, Container, Nav, Navbar, Form } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Container, Nav, Navbar, Image} from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/authProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+  console.log(user?.photoURL);
+
+  const handleLogout = () => {
+    logout()
+      .then()
+      .catch((error) => console.log(error.message));
+  };
   return (
     <Container>
       <Navbar bg="white" expand="lg">
@@ -13,7 +22,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="ms-auto my-2 my-lg-0"
+              className="mx-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
@@ -68,9 +77,21 @@ const Header = () => {
                 Blog
               </NavLink>
             </Nav>
-            <Link to="/login">
-              <Button variant="btn btn-danger">Login</Button>
-            </Link>
+            {user ? (
+              <>
+                {/* <img style={{width: '100px'}} src={user.photoURL} alt="" /> */}
+                <Image className="me-2" style={{width: '40px'}} src={user.photoURL} roundedCircle title={user.displayName}/>
+                <Link to="/login">
+                  <Button onClick={logout} variant="btn btn-danger">
+                    Logout
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <Link to="/login">
+                <Button variant="btn btn-danger">Login</Button>
+              </Link>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
