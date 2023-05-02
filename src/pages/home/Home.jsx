@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Container>
         <Header></Header>
-        <div className="h[calc(100vh-100px)]">
+        <div className="min-vh-100">
           <Banner></Banner>
         </div>
       </Container>

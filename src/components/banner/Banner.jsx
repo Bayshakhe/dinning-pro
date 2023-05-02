@@ -9,7 +9,7 @@ const Banner = () => {
           className="d-flex justify-content-center align-items-center"
           style={{
             backgroundImage:
-              "url('https://smitadey.org/wp-content/uploads/2020/10/USA-dinner-feature-image-30.jpg')",
+              "url('https://dwellbymichelle.com/wp-content/uploads/2021/05/DWELL-slumgullion-American-Goulash-Up-Close.jpg')",
             backgroundAttachment: "cover",
             backgroundColor: "gray",
             backgroundBlendMode: "multiply",
@@ -19,7 +19,7 @@ const Banner = () => {
           }}
         >
           <div className="text-white text-center w-75">
-            <h3 className="mb-3 fw-semibold">Feel the Authentic and Original <br /> Taste from Us</h3>
+            <h2 className="mb-3 fw-semibold">Feel the Authentic and Original <br /> Taste from Us</h2>
             <p>If you really want to recreate the authentic taste of your grandmother's cooking, there's one thing you are going to have to stock up on...</p>
           </div>
         </div>
@@ -39,7 +39,7 @@ const Banner = () => {
           }}
         >
           <div className="text-white text-center w-75">
-            <h3 className="mb-3 fw-semibold">Extra Ordinary Taste and Experience</h3>
+            <h2 className="mb-3 fw-semibold">Extra Ordinary Taste and Experience</h2>
             <p>It gives you extra ordinary taste which will break all your previous taste experience.</p>
           </div>
         </div>
@@ -59,7 +59,7 @@ const Banner = () => {
           }}
         >
           <div className="text-white text-center w-75">
-            <h3 className="mb-3 fw-semibold">The Number #One Choice Your <br /> Hunger Solution</h3>
+            <h2 className="mb-3 fw-semibold">The Number #One Choice Your <br /> Hunger Solution</h2>
             <p>Are you Hungry?? Here your number one choice for hunger solution by our Experts.</p>
           </div>
         </div>
