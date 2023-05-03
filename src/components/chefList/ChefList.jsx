@@ -36,7 +36,7 @@ const ChefList = ({ chefData }) => {
             </span>
           </p>
         </div>
-        <button className="btn btn-danger">View Recipe</button>
+        <button className="btn btn-dark">View Recipe</button>
       </div>
     </div>
   );
