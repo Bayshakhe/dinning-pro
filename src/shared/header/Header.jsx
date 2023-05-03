@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/authProvider/AuthProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
 
   const handleLogout = () => {
     logout()
@@ -37,36 +37,6 @@ const Header = () => {
                 Home
               </NavLink>
               <NavLink
-                to="/chef"
-                className={({ isActive }) =>
-                  isActive
-                    ? "fw-bold me-3 text-danger"
-                    : "text-decoration-none text-dark me-3"
-                }
-              >
-                Our Chef
-              </NavLink>
-              <NavLink
-                to={`/extra1`}
-                className={({ isActive }) =>
-                  isActive
-                    ? "fw-bold me-3 text-danger"
-                    : "text-decoration-none text-dark me-3"
-                }
-              >
-                Extra1
-              </NavLink>
-              <NavLink
-                to={`/extra2`}
-                className={({ isActive }) =>
-                  isActive
-                    ? "fw-bold me-3 text-danger"
-                    : "text-decoration-none text-dark me-3"
-                }
-              >
-                Extra2
-              </NavLink>
-              <NavLink
                 to={`/blog`}
                 className={({ isActive }) =>
                   isActive
@@ -82,7 +52,7 @@ const Header = () => {
                 {/* <img style={{width: '100px'}} src={user.photoURL} alt="" /> */}
                 <Image className="me-2" style={{width: '40px'}} src={user.photoURL} roundedCircle title={user.displayName}/>
                 <Link to="/login">
-                  <Button onClick={logout} variant="btn btn-danger">
+                  <Button onClick={handleLogout} variant="btn btn-danger">
                     Logout
                   </Button>
                 </Link>

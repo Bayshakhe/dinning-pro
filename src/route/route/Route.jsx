@@ -12,7 +12,8 @@ const router = createBrowserRouter([
     children:[
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch(`https://dining-pro-server.vercel.app/chef`),
       },{
         path: "/login",
         element: <Login></Login>,
