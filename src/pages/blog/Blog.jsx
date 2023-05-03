@@ -1,7 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import Header from "../../shared/header/Header";
-import Footer from "../../shared/footer/Footer";
 
 const Blog = () => {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Card, CardGroup, Container } from "react-bootstrap";
+import { BiLike,BiBriefcase } from "react-icons/bi";
+import { GiKnifeFork } from "react-icons/gi";
 
 const ChefList = ({ chefData }) => {
   const {
@@ -23,16 +24,19 @@ const ChefList = ({ chefData }) => {
           alt="..."
         ></img>
         <div className="card-body">
-          <h5 className="card-title fs-4">{name}</h5>
-          <p className="card-text">
-            Experience: {experience}
+          <h5 className="card-title fw-bold fs-4">{name}</h5>
+          <p className="fw-semibold">
+          <BiBriefcase className="me-2"></BiBriefcase>{experience} of Experience
             <br />
-            Recipe: {numberOfRecipe}
+            <GiKnifeFork className="me-2"></GiKnifeFork>{numberOfRecipe} most popular Recipe
             <br />
-            Likes: {likes}
+            <span className="text-danger fs-5 d-flex align-items-center">
+              <BiLike className="me-2"></BiLike>
+              {likes}
+            </span>
           </p>
         </div>
-        <button className="btn btn-danger">View Details</button>
+        <button className="btn btn-danger">View Recipe</button>
       </div>
     </div>
   );
