@@ -16,32 +16,32 @@ const ChefList = ({ chefData }) => {
     recipes,
   } = chefData;
   return (
-    <div className="col">
+    <div className="col mb-3">
       <div className="card h-100">
         <img
           style={{ height: "300px" }}
           src={image}
           className="card-img-top"
-          alt="..."
+          alt="Chef's Image"
         ></img>
         <div className="card-body">
-          <h5 className="card-title fw-bold fs-4">{name}</h5>
-          <p className="fw-semibold">
+          <h5 className="card-title fs-3 mb-3">{name}</h5>
+          <p className="">
             <BiBriefcase className="me-2"></BiBriefcase>
             {experience} of Experience
             <br />
             <GiKnifeFork className="me-2"></GiKnifeFork>
             {numberOfRecipe} most popular Recipe
             <br />
-            <span className="text-danger fs-5 d-flex align-items-center">
+            <span className="d-flex align-items-center">
               <BiLike className="me-2"></BiLike>
               {likes}
             </span>
           </p>
         </div>
-        <Link to={`/chef/${id}`}>
-          <button className="btn btn-dark">View Recipe</button>
-        </Link>
+        <button className="btn btn-danger">
+          <Link  className="text-white text-decoration-none" to={`/chef/${id}`}>View Recipe</Link>
+        </button>
       </div>
     </div>
   );

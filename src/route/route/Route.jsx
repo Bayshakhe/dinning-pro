@@ -5,8 +5,8 @@ import Login from "../../pages/login/Login";
 import Register from "../../pages/register/Register";
 import HomeLayout from "../../layouts/homeLayout/HomeLayout";
 import RecipeDetails from "../../pages/recipeDetails/RecipeDetails";
-import RecipeDetailsLayout from "../../layouts/recipeDetailsLayout/RecipeDetailsLayout";
 import ErrorPage from "../../components/errorPage/ErrorPage";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,13 +17,20 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`https://dining-pro-server.vercel.app/chef`),
+        loader: () =>
+          fetch(`https://dining-pro-server-bayshakhe.vercel.app/chef`),
       },
       {
         path: "/chef/:id",
-        element: <RecipeDetails></RecipeDetails>,
-        loader: ({params}) =>
-          fetch(`https://dining-pro-server.vercel.app/chef/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <RecipeDetails></RecipeDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://dining-pro-server-bayshakhe.vercel.app/chef/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -38,7 +45,7 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
     ],
-  }
+  },
 ]);
 
 export default router;

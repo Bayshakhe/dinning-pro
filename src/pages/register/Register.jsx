@@ -29,7 +29,9 @@ const Register = () => {
         .then(result => {
             const loggedUser = result.user;
             updateUserProfile(name,photo)
-            .then()
+            .then(result => {
+              form.reset()
+            })
             .catch(error => setError(error.message))
             console.log(loggedUser)
         })
