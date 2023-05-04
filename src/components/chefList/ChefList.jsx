@@ -39,9 +39,9 @@ const ChefList = ({ chefData }) => {
             </span>
           </p>
         </div>
-        <button className="btn btn-danger">
-          <Link  className="text-white text-decoration-none" to={`/chef/${id}`}>View Recipe</Link>
-        </button>
+        <Link to={`/chef/${id}`}>
+          <button className="btn btn-danger w-100">View Recipe</button>
+        </Link>
       </div>
     </div>
   );

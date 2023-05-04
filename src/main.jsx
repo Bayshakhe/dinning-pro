@@ -7,6 +7,7 @@ import router from "./route/route/Route.jsx";
 import AuthProvider, {
   AuthContext,
 } from "./providers/authProvider/AuthProvider.jsx";
+import '@smastrom/react-rating/style.css'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
