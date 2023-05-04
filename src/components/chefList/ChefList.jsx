@@ -1,6 +1,7 @@
 import React from "react";
-import { BiLike,BiBriefcase } from "react-icons/bi";
+import { BiLike, BiBriefcase } from "react-icons/bi";
 import { GiKnifeFork } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const ChefList = ({ chefData }) => {
   const {
@@ -26,9 +27,11 @@ const ChefList = ({ chefData }) => {
         <div className="card-body">
           <h5 className="card-title fw-bold fs-4">{name}</h5>
           <p className="fw-semibold">
-          <BiBriefcase className="me-2"></BiBriefcase>{experience} of Experience
+            <BiBriefcase className="me-2"></BiBriefcase>
+            {experience} of Experience
             <br />
-            <GiKnifeFork className="me-2"></GiKnifeFork>{numberOfRecipe} most popular Recipe
+            <GiKnifeFork className="me-2"></GiKnifeFork>
+            {numberOfRecipe} most popular Recipe
             <br />
             <span className="text-danger fs-5 d-flex align-items-center">
               <BiLike className="me-2"></BiLike>
@@ -36,7 +39,9 @@ const ChefList = ({ chefData }) => {
             </span>
           </p>
         </div>
-        <button className="btn btn-dark">View Recipe</button>
+        <Link to={`/chef/${id}`}>
+          <button className="btn btn-dark">View Recipe</button>
+        </Link>
       </div>
     </div>
   );
