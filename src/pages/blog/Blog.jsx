@@ -20,8 +20,7 @@ const Blog = () => {
       </p>
       <h6>2. How to validate React Props using PropType?</h6>
       <p className="ms-3 mb-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-        fugit.
+        PropTypes is React's internal mechanism for adding type checking to component props. There are many ways to validate React Props using PropTypes. Like: PropTypes.any, PropTypes.bool, PropTypes.number, PropTypes.string, PropTypes.array, PropTypes.object.
       </p>
       <h6>3. Tell us the difference between Node.js and Express.js</h6>
       <p className="ms-3 mb-4">
