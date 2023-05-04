@@ -2,6 +2,7 @@ import React from "react";
 import { BiLike, BiBriefcase } from "react-icons/bi";
 import { GiKnifeFork } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ChefList = ({ chefData }) => {
   const {
@@ -18,12 +19,13 @@ const ChefList = ({ chefData }) => {
   return (
     <div className="col mb-3">
       <div className="card h-100">
-        <img
+        <LazyLoadImage
           style={{ height: "300px" }}
           src={image}
           className="card-img-top"
           alt="Chef's Image"
-        ></img>
+        ></LazyLoadImage>
+        
         <div className="card-body">
           <h5 className="card-title fs-3 mb-3">{name}</h5>
           <p className="">

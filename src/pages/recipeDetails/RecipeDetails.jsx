@@ -24,7 +24,7 @@ const RecipeDetails = () => {
   const handleFavourite = (event) => {
     console.log(event.target)
     setFavourite(true);
-    toast('The Recipe is Your Favourite.')
+    toast.success('The Recipe is Your Favourite.')
   }
 
   return (
@@ -63,7 +63,7 @@ const RecipeDetails = () => {
             <Card.Body>
                 <div className="d-flex fs-5 mb-3 justify-content-between align-items-center">
                 <div className="d-flex gap-2">
-                <Rating style={{ maxWidth: 100 }} value={Math.round(r.racipeRating)} readOnly />{r.recipeRating}
+                <Rating style={{ maxWidth: 100 }} value={Math.round(r.recipeRating || 0)} readOnly />{r.recipeRating}
                 </div>
                 <Button onClick={handleFavourite} disabled={favourite} className="btn btn-danger btn-sm" title="Add to Favourite"><GiSelfLove></GiSelfLove></Button>
                 </div>
