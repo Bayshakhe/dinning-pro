@@ -7,12 +7,14 @@ import router from "./route/route/Route.jsx";
 import AuthProvider, {
   AuthContext,
 } from "./providers/authProvider/AuthProvider.jsx";
-import '@smastrom/react-rating/style.css'
+import '@smastrom/react-rating/style.css';
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
+      <Toaster />
     </AuthProvider>
   </React.StrictMode>
 );

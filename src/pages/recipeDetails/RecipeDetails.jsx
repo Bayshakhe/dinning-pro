@@ -1,12 +1,14 @@
-import React from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import { Rating } from '@smastrom/react-rating'
+import { GiSelfLove } from "react-icons/gi";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const RecipeDetails = () => {
   const chefdata = useLoaderData();
-  console.log(chefdata);
+  const [favourite, setFavourite] = useState(false);
   const {
     id,
     name,
@@ -18,6 +20,13 @@ const RecipeDetails = () => {
     rating,
     recipes,
   } = chefdata;
+
+  const handleFavourite = (event) => {
+    console.log(event.target)
+    setFavourite(true);
+    toast('The Recipe is Your Favourite.')
+  }
+
   return (
     <Container>
       <Row xs={1} md={2} className="g-4 my-5">
@@ -52,8 +61,11 @@ const RecipeDetails = () => {
                 <Card >
             <Card.Img style={{height: '250px'}} variant="top" src={r.recipeImg} />
             <Card.Body>
-                <div className="d-flex fs-5">
-                <Rating style={{ maxWidth: 100 }} value={rating} readOnly />{rating}
+                <div className="d-flex fs-5 mb-3 justify-content-between align-items-center">
+                <div className="d-flex gap-2">
+                <Rating style={{ maxWidth: 100 }} value={Math.round(r.racipeRating)} readOnly />{r.recipeRating}
+                </div>
+                <Button onClick={handleFavourite} disabled={favourite} className="btn btn-danger btn-sm" title="Add to Favourite"><GiSelfLove></GiSelfLove></Button>
                 </div>
               <Card.Title className="text-danger">{r.recipeName}</Card.Title>
               <Card.Text className="mb-0 fw-bold">Ingredients: </Card.Text>
